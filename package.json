@@ -1,0 +1,51 @@
+{
+	"name": "html-nest-comment",
+	"publisher": "坏蛋Dan",
+	"displayName": "HTML-Nest-Comment",
+	"description": "HTML template注释插件。当你想注释的html模板里存在注释时会出现注释错误的现象，这个插件会自动绕过里面的注释。朋友有需要所以写了个。快捷键：Ctrl+Shift+/",
+	"version": "1.0.0",
+	"icon": "images/logo.png",
+	"repository": "https://gitee.com/zhaoqizhi/html-comment",
+	"engines": {
+		"vscode": "^1.69.2"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:html-nest-comment.comment"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "html-nest-comment.comment",
+				"title": "html-nest-comment"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "html-nest-comment.comment",
+				"key": "ctrl+shift+oem_2",
+				"mac": "cmd+f1",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.69.0",
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "16.x",
+		"glob": "^8.0.3",
+		"mocha": "^10.0.0"
+	}
+}
